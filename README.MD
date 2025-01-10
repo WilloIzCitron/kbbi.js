@@ -1,7 +1,8 @@
 # kbbi.js
 
 Kamus Besar Bahasa Indonesia. NOW IN PUPPETEER!!!
-Selama repo owner yg asli masih belum respon PR gw, gw maintain secara independen. gw masih respect ia untuk membuatkan package ini.
+
+Gw bikin fork selama repo owner yg asli masih belum hidup, gw maintain secara independen. gw masih respect ia untuk membuatkan package ini.
 
 ## Instalasi/Installation
 
