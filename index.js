@@ -1,3 +1,4 @@
+const puppeteer = require('puppeteer');
 const { parse } = require('node-html-parser');
 const got = require('got');
 require('dotenv').config();
@@ -14,8 +15,14 @@ const options = {
 
 async function cari(keyword) {
     if(!keyword) throw new Error('Please provide any keyword to find!');
-    const res = await got.post(`https://kbbi.kemdikbud.go.id/entri/${keyword}`, options);
-    const root = parse(res.body);
+    //to initiate puppeteer
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.goto(`https://kbbi.kemdikbud.go.id/entri/${keyword}`);
+    const res = await page.content()
+    await browser.deleteCookie();
+    const root = parse(res);
     const lema = root.querySelector('h2').text;
     let arti = root.querySelectorAll('ol li').map(x => x.text.slice(1).split("  ").join(""));
     if (arti.length === 0) {
@@ -26,7 +33,10 @@ async function cari(keyword) {
     if (arti.length === 0) {
         return { lema: null, arti: null};
     }
+    await browser.close();
     return { lema, arti};
 }
+
+cari("neraka").then(result => console.log(result));
 
 module.exports = { cari };
