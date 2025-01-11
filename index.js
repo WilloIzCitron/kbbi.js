@@ -27,6 +27,4 @@ async function cari(keyword) {
     return { lema, arti};
 }
 
-cari("neraka").then(result => console.log(result));
-
 module.exports = { cari };
