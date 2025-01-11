@@ -27,7 +27,6 @@
   "author": "Jastin <jastinlinggar@gmail.com>, WilloIzCitron",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^1.0.0",
     "got": "^11.8.6",
     "node-html-parser": "^6.1.13"
   }
