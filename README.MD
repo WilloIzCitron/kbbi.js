@@ -1,6 +1,6 @@
 # kbbi.js
 
-Kamus Besar Bahasa Indonesia. NOW IN PUPPETEER!!!
+Kamus Besar Bahasa Indonesia. AND NOW IN CHEERIO!! puppeteer aren't VPS friendly.
 
 Gw bikin fork selama repo owner yg asli masih belum hidup, gw maintain secara independen. gw masih respect ia untuk membuatkan package ini.
 
