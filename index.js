@@ -1,17 +1,5 @@
 const puppeteer = require('puppeteer');
 const { parse } = require('node-html-parser');
-const got = require('got');
-require('dotenv').config();
-
-const options = {
-    https2: false,
-    method: "GET",
-    responseType: "text",
-    headers: {
-        referer: "https://kbbi.kemdikbud.go.id/",
-        'user-agent': process.env.USERAGENT || undefined
-    }
-};
 
 async function cari(keyword) {
     if(!keyword) throw new Error('Please provide any keyword to find!');
