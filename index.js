@@ -24,7 +24,7 @@ async function cari(keyword) {
         return { lema: null, arti: null};
     }
     await browser.close();
-    return { lema, arti};
+    return { lema, arti };
 }
 
 module.exports = { cari };
