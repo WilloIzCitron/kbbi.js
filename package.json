@@ -27,6 +27,7 @@
   "author": "Jastin <jastinlinggar@gmail.com>, WilloIzCitron",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "got": "^11.8.6",
     "node-html-parser": "^6.1.13"
   }

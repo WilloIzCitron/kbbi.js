@@ -1,5 +1,6 @@
 const { parse } = require('node-html-parser');
 const got = require('got');
+require('dotenv').config();
 
 const options = {
     headers:{
