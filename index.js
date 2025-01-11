@@ -4,7 +4,9 @@ const { parse } = require('node-html-parser');
 async function cari(keyword) {
     if(!keyword) throw new Error('Please provide any keyword to find!');
     //to initiate puppeteer
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
 
     await page.goto(`https://kbbi.kemdikbud.go.id/entri/${keyword}`);
