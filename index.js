@@ -3,8 +3,8 @@ const got = require('got');
 require('dotenv').config();
 
 const options = {
-    headers:{
-        'User-Agent': process.env.USERAGENT || ''
+    headers: {
+        'user-agent': process.env.USERAGENT || undefined
     }
 };
 
