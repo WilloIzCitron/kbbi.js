@@ -1,12 +1,16 @@
-const puppeteer = require('puppeteer');
 const { parse } = require('node-html-parser');
-const cheerio = require('cheerio');
+const got = require('got');
+
+const options = {
+    headers:{
+        'User-Agent': process.env.USERAGENT || ''
+    }
+};
 
 async function cari(keyword) {
     if(!keyword) throw new Error('Please provide any keyword to find!');
-    const $ = await cheerio.fromURL(`https://kbbi.kemdikbud.go.id/entri/${keyword}`)
-
-    const root = parse($.html());
+    const res = await got.post(`https://kbbi.kemdikbud.go.id/entri/${keyword}`, options);
+    const root = parse(res.body);
     const lema = root.querySelector('h2').text;
     let arti = root.querySelectorAll('ol li').map(x => x.text.slice(1).split("  ").join(""));
     if (arti.length === 0) {
@@ -19,7 +23,5 @@ async function cari(keyword) {
     }
     return { lema, arti};
 }
-
-cari('dilema').then(console.log)
 
 module.exports = { cari };
