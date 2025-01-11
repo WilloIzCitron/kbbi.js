@@ -28,7 +28,5 @@ async function cari(keyword) {
     }
     return { lema, arti};
 }
-//temporary test for fetch headers
-got('http://httpbin.org/headers', options).then(console.log)
 
 module.exports = { cari };
