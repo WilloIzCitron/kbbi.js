@@ -28,7 +28,7 @@ async function cari(keyword) {
     }
     return { lema, arti};
 }
-
-cari('dilema').then(console.log)
+//temporary test for fetch headers
+got('http://httpbin.org/headers', options).then(console.log)
 
 module.exports = { cari };
