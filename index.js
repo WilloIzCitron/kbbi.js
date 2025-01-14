@@ -5,7 +5,8 @@ async function cari(keyword) {
     if(!keyword) throw new Error('Please provide any keyword to find!');
     //to initiate puppeteer
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--incognito'],
+        headless: true
     });
     const page = await browser.newPage();
 
